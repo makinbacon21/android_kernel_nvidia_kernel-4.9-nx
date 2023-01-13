@@ -252,6 +252,7 @@ enum fts_error_return {
  */
 struct fts_finger {
 	unsigned char state;
+	unsigned short mcount;
 	int lx;
 	int ly;
 };
@@ -287,8 +288,8 @@ struct fts_i2c_platform_data {
 	int max_x;
 	int max_y;
 
-	struct regulator *regulator_dvdd;
-	struct regulator *regulator_avdd;
+	const char *regulator_dvdd;
+	const char *regulator_avdd;
 
 	int (*power)(void *data, bool on);
 
